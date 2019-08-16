@@ -19,8 +19,8 @@ router.post("/", async (req, res) => {
   const resourceData = req.body;
 
   try {
-    const project = await db.add(projectData);
-    res.status(201).json(project);
+    const resource = await db.add(resourceData);
+    res.status(201).json(resource);
   } catch (err) {
     res.status(500).json({ message: "Failed to create new resource" });
   }
