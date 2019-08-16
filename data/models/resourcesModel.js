@@ -19,6 +19,6 @@ async function findById(id) {
 }
 
 async function add(resource) {
-  const id = await db("resources").insert(resource, "id");
-  return findById(...id);
+  const newResource = await db("resources").insert(resource);
+  return newResource;
 }

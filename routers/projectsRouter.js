@@ -15,6 +15,15 @@ router.get("/list", async (req, res) => {
   }
 });
 
-module.exports = router;
+router.post("/", async (req, res) => {
+  const projectData = req.body;
+
+  try {
+    const project = await db.add(projectData);
+    res.status(201).json(project);
+  } catch (err) {
+    res.status(500).json({ message: "Failed to create new project" });
+  }
+});
 
 module.exports = router;
